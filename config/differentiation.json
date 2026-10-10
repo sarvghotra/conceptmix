@@ -1,0 +1,10 @@
+{
+    "category": "differentiation",
+    "description": "the image contains both {value_a} {object} and {value_b} {object}, two {objects} that differ in {skill}",
+    "skill": {
+        "color": "",
+        "size": "",
+        "shape": "",
+        "texture": ""
+    }
+}

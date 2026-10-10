@@ -1,16 +1,8 @@
 import os
 import re
 import json
-import requests
 import argparse
-import torch
-# from openai import OpenAI
-from diffusers import StableDiffusionPipeline, DiffusionPipeline
-from utils import load_configs, generate_sentence, load_all_configs, load_configs_new, load_sequential_value, load_configs_sequentially, robusify_Azure_api_call
-from models.t2image import get_model_class
-from openai import AzureOpenAI
-
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+from utils import generate_sentence, load_configs_new, robusify_Azure_api_call, load_local_chat_api
 
 def append_to_json(file_path, data):
     if os.path.exists(file_path):
@@ -29,7 +21,10 @@ def append_to_json(file_path, data):
 def main(args):
     k = args.num_skills
     index = args.index 
-    robust_Azure_chat_completion = robusify_Azure_api_call(model='gpt-4o-2024-05-13')
+    if args.llm == 'azure':
+        robust_Azure_chat_completion = robusify_Azure_api_call(model='gpt-4o-2024-05-13')
+    else:
+        robust_Azure_chat_completion = load_local_chat_api(base_url=args.llm_base_url, model=args.llm_model, thinking=args.thinking)
 
     skills, descriptions, categories, refined_config = load_configs_new(robust_Azure_chat_completion, k, config_path=args.config_path, specified_skill=args.specified_skill)
     if args.specified_skill and args.specified_skill not in categories:
@@ -77,6 +72,10 @@ if __name__ == "__main__":
     parser.add_argument("--config_path", type=str, default="./config", help="Path to the config files")
     parser.add_argument("--index", type=int, default=0, help="Index of the current process")
     parser.add_argument("--num_iterations", type=int, default=300, help="Number of iterations to run")
+    parser.add_argument("--llm", type=str, default="local", choices=["local", "azure"], help="Use a local OpenAI-compatible server or Azure GPT-4o")
+    parser.add_argument("--llm_base_url", type=str, default=os.environ.get("LLM_BASE_URL", "http://localhost:8000/v1"), help="Base URL of the local server")
+    parser.add_argument("--thinking", action="store_true", help="Enable Qwen3.6 thinking mode (local LLM only)")
+    parser.add_argument("--llm_model", type=str, default=os.environ.get("LLM_MODEL", "Qwen3.6-27B"), help="Model name as served by the local server")
 
     args = parser.parse_args()
     main(args)

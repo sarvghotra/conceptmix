@@ -1,0 +1,8 @@
+{
+    "category": "negation",
+    "description": "",
+    "skill": {
+        "absent object": "the image contains no {item}, although {item} is something one would normally expect to see in this scene",
+        "missing part": "{object} is missing {part}, a part it would normally have"
+    }
+}

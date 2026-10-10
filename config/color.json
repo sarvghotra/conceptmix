@@ -1,6 +1,6 @@
 {
     "category": "color",
-    "description": "the color of {object} is {skill}", 
+    "description": "the color of {object} is {skill}",
     "skill": {
         "red": "",
         "blue": "",
@@ -12,6 +12,26 @@
         "brown": "",
         "black": "",
         "white": "",
-        "gray": ""
+        "gray": "",
+        "cyan": "",
+        "teal": "",
+        "turquoise": "",
+        "navy blue": "",
+        "sky blue": "",
+        "magenta": "",
+        "maroon": "",
+        "crimson": "",
+        "beige": "",
+        "gold": "",
+        "silver": "",
+        "lavender": "",
+        "indigo": "",
+        "violet": "",
+        "olive green": "",
+        "lime green": "",
+        "mint green": "",
+        "coral": "",
+        "khaki": "",
+        "burgundy": ""
     }
 }

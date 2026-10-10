@@ -1,11 +1,25 @@
 {
-  "category": "shape",
-  "description": "{object} is {skill} shaped.",
-  "skill": {
-    "circle": "",
-    "square": "",
-    "rectangle": "",
-    "triangle": "",
-    "heart": ""
-  }
+    "category": "shape",
+    "description": "{object} is {skill} shaped.",
+    "skill": {
+        "circle": "",
+        "square": "",
+        "rectangle": "",
+        "triangle": "",
+        "heart": "",
+        "star": "",
+        "oval": "",
+        "hexagon": "",
+        "pentagon": "",
+        "octagon": "",
+        "diamond": "",
+        "crescent": "",
+        "cross": "",
+        "spiral": "",
+        "cube": "",
+        "sphere": "",
+        "cylinder": "",
+        "cone": "",
+        "arrow": ""
+    }
 }

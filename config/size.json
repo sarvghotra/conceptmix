@@ -3,6 +3,11 @@
     "description": "{object} has a {skill} size.",
     "skill": {
         "tiny": "",
-        "huge": ""
+        "huge": "",
+        "small": "",
+        "large": "",
+        "giant": "",
+        "miniature": "",
+        "enormous": ""
     }
 }

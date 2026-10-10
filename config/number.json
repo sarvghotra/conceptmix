@@ -1,9 +1,10 @@
 {
     "category": "number",
-    "description": "the number of {objects} is exactly {skill}.", 
+    "description": "the number of {objects} is exactly {skill}.",
     "skill": {
         "2": "",
         "3": "",
-        "4": ""
+        "4": "",
+        "5": ""
     }
 }

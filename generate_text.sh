@@ -1,12 +1,15 @@
 #!/bin/bash
+# Start the LLM server first (./serve_llm.sh); set LLM_BASE_URL if it runs on another node.
+# The run is resumable: re-running skips prompts that are already generated.
 
-output_dir=""
-num_iterations=300
+output_dir="all/0_sentence_collection"
+num_per_k=20000  # 10 values of k x 20000 = 200K prompts
+concurrency=${CONCURRENCY:-256}  # roughly max-num-seqs x number of server replicas
 
-for num_skills in {1..7}; do
-    for i in $(seq 1 $num_iterations); do
-        CUDA_VISIBLE_DEVICES=0 python ./dynamix/main_sentence_generation.py --num_skills $num_skills --output_dir $output_dir --index $i --num_iterations $num_iterations
-    done
-done
+python ./dynamix/batch_sentence_generation.py \
+    --k_min 1 --k_max 10 \
+    --num_per_k $num_per_k \
+    --output_dir $output_dir \
+    --concurrency $concurrency
 
-echo "Image generation completed."
+echo "Sentence generation completed."

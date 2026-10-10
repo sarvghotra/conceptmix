@@ -1,0 +1,13 @@
+{
+    "category": "comparison",
+    "description": "{ObjectA} is {skill} than {ObjectB}.",
+    "skill": {
+        "more": "there are more {ObjectAs} than {ObjectBs}",
+        "fewer": "there are fewer {ObjectAs} than {ObjectBs}",
+        "as many": "there are as many {ObjectAs} as {ObjectBs}",
+        "bigger": "{ObjectA} is bigger than {ObjectB}",
+        "smaller": "{ObjectA} is smaller than {ObjectB}",
+        "taller": "{ObjectA} is taller than {ObjectB}",
+        "shorter": "{ObjectA} is shorter than {ObjectB}"
+    }
+}

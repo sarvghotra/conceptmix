@@ -1,0 +1,11 @@
+{
+    "category": "text",
+    "description": "{object} has {skill} written on it, which is legible in the image",
+    "skill": {
+        "a single word": "",
+        "a short phrase of two to four words": "",
+        "a number": "",
+        "a name": "",
+        "a brand-like logo word": ""
+    }
+}
